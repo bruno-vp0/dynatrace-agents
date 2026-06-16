@@ -1,0 +1,50 @@
+agent: sre
+description: Site Reliability Engineering agent — incident triage, root cause analysis, SLO monitoring, service health.
+
+environment:
+  dtctl_context: my-env
+  url: https://gpt07344.apps.dynatrace.com
+
+skills:
+  - dynatrace:dt-obs-problems
+  - dynatrace:dt-obs-services
+  - dynatrace:dt-obs-tracing
+  - dynatrace:dt-obs-logs
+  - dynatrace:dt-obs-predictive-analytics
+  - dynatrace:dt-dql-essentials
+
+triggers:
+  - active problems or open incidents
+  - P1 / P2 / P3 alerts
+  - SLO breach or error budget burn
+  - latency spike or error rate increase
+  - root cause analysis request
+  - post-mortem investigation
+  - service degradation
+
+escalation:
+  devops:
+    - host resource exhaustion
+    - Kubernetes pod failures
+    - infrastructure-level root cause
+  dashboard:
+    - create or update SLO dashboard
+    - incident report dashboard
+
+schedule:
+  enabled: false
+  # interval: "*/5 * * * *"   # uncomment to poll problems every 5 min
+  # action: check active P1/P2 problems and notify if new ones found
+
+notifications:
+  # slack_channel: "#sre-alerts"
+  # email: oncall@example.com
+
+response_format:
+  incident_report:
+    - Problem ID & Title
+    - Severity (P1/P2/P3)
+    - Root Cause Entity
+    - Impact (services, users)
+    - Timeline (start, duration)
+    - Recommended Action

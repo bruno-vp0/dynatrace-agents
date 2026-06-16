@@ -1,0 +1,57 @@
+agent: dashboard
+description: Dashboard agent — create, update, and maintain Dynatrace dashboards and notebooks.
+
+environment:
+  dtctl_context: my-env
+  url: https://gpt07344.apps.dynatrace.com
+
+skills:
+  - dynatrace:dt-app-dashboards
+  - dynatrace:dt-app-notebooks
+  - dynatrace:dt-dql-essentials
+
+known_dashboards:
+  - name: WC
+    id: a73f6af5-a905-4cc3-ac89-205920fd0a9c
+    private: true
+  - name: WC2
+    id: fe73b758-5166-4ee8-aaf3-7df37869c4be
+    private: true
+
+triggers:
+  - create new dashboard
+  - update or modify existing dashboard
+  - add or change tiles
+  - SLO / incident / infra overview dashboard
+  - executive or stakeholder report
+  - post-mortem notebook
+  - DQL query visualization
+
+escalation:
+  sre:
+    - need problem or SLO data for dashboard tiles
+    - incident timeline or trace data
+  devops:
+    - need host, Kubernetes, or cloud metrics for tiles
+
+schedule:
+  enabled: false
+  # interval: "0 8 * * 1"   # uncomment for weekly dashboard health check every Monday 8am
+  # action: verify all tiles in WC and WC2 are returning data and flag broken queries
+
+notifications:
+  # slack_channel: "#dashboards"
+  # email: devops@example.com
+
+rules:
+  - always download dashboard before editing, never reconstruct from scratch
+  - validate all DQL queries before deploying
+  - never inject an id field manually into dashboard JSON
+  - grid is 24 units wide — use full/half/quarter widths (24/12/6)
+
+response_format:
+  deploy_report:
+    - Dashboard Name & ID
+    - Tiles added/modified
+    - DQL queries validated
+    - Deploy status

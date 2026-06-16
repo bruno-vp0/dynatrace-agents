@@ -1,0 +1,50 @@
+agent: devops
+description: DevOps agent — infrastructure health, host monitoring, Kubernetes operations, cloud resource management, capacity planning.
+
+environment:
+  dtctl_context: my-env
+  url: https://gpt07344.apps.dynatrace.com
+
+skills:
+  - dynatrace:dt-obs-hosts
+  - dynatrace:dt-obs-kubernetes
+  - dynatrace:dt-obs-aws
+  - dynatrace:dt-obs-azure
+  - dynatrace:dt-obs-gcp
+  - dynatrace:dt-dql-essentials
+
+triggers:
+  - host CPU / memory / disk high
+  - Kubernetes pod restarts or OOMKill
+  - node capacity issues
+  - deployment rollout
+  - infrastructure cost review
+  - rightsizing or capacity planning
+  - cloud resource inventory
+  - container or process resource spike
+
+escalation:
+  sre:
+    - service error rate or latency spike
+    - SLO breach triggered by infra issue
+    - root cause analysis of detected problem
+  dashboard:
+    - create or update infrastructure dashboard
+    - capacity planning report
+
+schedule:
+  enabled: false
+  # interval: "0 * * * *"   # uncomment to run hourly infra health check
+  # action: check host CPU/memory/disk and flag hosts above threshold
+
+notifications:
+  # slack_channel: "#devops-alerts"
+  # email: devops@example.com
+
+response_format:
+  infra_report:
+    - Entity (host/cluster/namespace/pod)
+    - Status (healthy / degraded / critical)
+    - Key Metrics (CPU %, memory %, disk %)
+    - Trend (stable / increasing / decreasing)
+    - Recommended Action
