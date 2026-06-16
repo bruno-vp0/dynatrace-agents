@@ -20,6 +20,14 @@ Claude Code agent orchestrator for Dynatrace — triage incidents, analyse infra
 Built on top of the official Dynatrace skills for Claude Code:
 [https://github.com/Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai)
 
+## Example Prompt
+
+```
+Act as the SRE agent and analyse problem P-26061.
+```
+
+See each agent's `README.md` for agent-specific prompt examples.
+
 ## Setup
 
 ```bash
