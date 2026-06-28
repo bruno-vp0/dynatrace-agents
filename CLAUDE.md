@@ -5,8 +5,9 @@ which agent is best suited and spawn it as a sub-agent with the correct SKILL.md
 
 ## Environment
 
-- Dynatrace URL: https://gpt07344.apps.dynatrace.com
+- Dynatrace URL: https://xjr77121.apps.dynatrace.com
 - dtctl context: my-env
+- AKS Cluster: aks-demo-dt | Resource Group: rg-demo-dt
 
 ## Available Agents
 

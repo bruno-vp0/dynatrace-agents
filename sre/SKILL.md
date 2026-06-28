@@ -26,6 +26,7 @@ Always load the relevant skill before executing any query or action:
 | SLO trends, anomaly forecasting | `dynatrace:dt-obs-predictive-analytics` |
 | Custom DQL queries | `dynatrace:dt-dql-essentials` |
 
+
 ## Responsibilities
 
 ### 1. Incident Triage
